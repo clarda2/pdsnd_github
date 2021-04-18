@@ -199,13 +199,19 @@ def display_data(df, location=0):
         location += 1
 
 def main():
+    # MAIN function where the calls all other functions from
     while True:
         city, month, day = get_filters()
+        # Call function load_data
         df = load_data(city, month, day)
 
+        # Call function time_stats passing loaded dataframe
         time_stats(df)
+        # Call function station_stats passing loaded dataframe
         station_stats(df)
+        # Call function trip_duration_stats passing loaded dataframe
         trip_duration_stats(df)
+        # Call function user_stats passing loaded dataframe
         user_stats(df)
 
         valid_reponse = ['yes', 'no']
