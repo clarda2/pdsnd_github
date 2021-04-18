@@ -53,20 +53,20 @@ def load_data(city, month, day):
         (str) month - name of the month to filter by, or "all" to apply no month filter
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     Returns:
-        df - Pandas DataFrame containing city data filtered by month and day
+        csv_data_table - Pandas DataFrame containing city data filtered by month and day
     """
     # load data file into a dataframe
-    df = pd.read_csv(CITY_DATA[city])
+    csv_data_table = pd.read_csv(CITY_DATA[city])
 
     # convert the Start Time column to datetime
-    df['Start Time'] = pd.to_datetime(df['Start Time'])
-    df['End Time'] = pd.to_datetime(df['End Time'])
+    csv_data_table['Start Time'] = pd.to_datetime(csv_data_table['Start Time'])
+    csv_data_table['End Time'] = pd.to_datetime(csv_data_table['End Time'])
 
 
     # extract month and day of week from Start Time to create new columns
-    df['month'] = df['Start Time'].dt.month
-    df['day_of_week'] = df['Start Time'].dt.day_name()
-    df['hour'] = df['Start Time'].dt.hour
+    csv_data_table['month'] = csv_data_table['Start Time'].dt.month
+    csv_data_table['day_of_week'] = csv_data_table['Start Time'].dt.day_name()
+    csv_data_table['hour'] = csv_data_table['Start Time'].dt.hour
 
     # filter by month if applicable
     if month != 'all':
@@ -75,15 +75,15 @@ def load_data(city, month, day):
         month = months.index(month) + 1
 
         # filter by month to create the new dataframe
-        df = df[df['month'] == month]
+        csv_data_table = csv_data_table[csv_data_table['month'] == month]
 
     # filter by day of week if applicable
     if day != 'all':
         # filter by day of week to create the new dataframe
-        df = df[df['day_of_week'] == day.title()]
+        csv_data_table = csv_data_table[csv_data_table['day_of_week'] == day.title()]
 
 
-    return df
+    return csv_data_table
 
 
 def time_stats(df):
