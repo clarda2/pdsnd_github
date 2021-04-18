@@ -201,12 +201,12 @@ def display_data(df, location=0):
 def main():
     while True:
         city, month, day = get_filters()
-        df = load_data(city, month, day)
+        csv_data_table = load_data(city, month, day)
 
-        time_stats(df)
-        station_stats(df)
-        trip_duration_stats(df)
-        user_stats(df)
+        time_stats(csv_data_table)
+        station_stats(csv_data_table)
+        trip_duration_stats(csv_data_table)
+        user_stats(csv_data_table)
 
         valid_reponse = ['yes', 'no']
         display = 'yes'
@@ -217,7 +217,7 @@ def main():
                 display = input('\nSorry, try again. Would you like to display some data? Enter yes or no.\n')
 
             if display.lower() == 'yes': 
-                display_data(df, location)
+                display_data(csv_data_table, location)
                 location += 5
 
         restart = input('\nWould you like to restart? Enter yes or no.\n')
