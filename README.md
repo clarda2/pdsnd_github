@@ -11,8 +11,12 @@ Totals the uses for days or months for bike share from available city data.
 returns the time statistics, duration statistics and user statistics for selected city.
 
 ### Files used
-Include the files used
+bikeshare_2.py
+chicago.csv
+new_york_city.csv
+washington.csv
 
 ### Credits
+was me own work.
 It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
 
