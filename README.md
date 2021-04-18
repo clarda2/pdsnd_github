@@ -4,10 +4,11 @@
 Created project from cloned repo on 18/04/2021.
 
 ### Project Title
-Replace the Project Title
+Bike share project 
 
 ### Description
-Describe what your project is about and what it does
+Totals the uses for days or months for bike share from available city data.
+returns the time statistics, duration statistics and user statistics for selected city.
 
 ### Files used
 Include the files used
